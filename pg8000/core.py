@@ -669,7 +669,8 @@ class Connection():
                 self._usock.sendall(ii_pack(8, 80877103))
                 resp = self._usock.recv(1)
                 if resp != b'S':
-                    raise InterfaceError("Server refuses SSL")
+                    pass
+                    #raise InterfaceError("Server refuses SSL")
 
                 self._usock = ssl_context.wrap_socket(
                     self._usock, server_hostname=host)
